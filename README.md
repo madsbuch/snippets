@@ -1,2 +1,2 @@
 # snippets
-Snippets
+Just various problems in various programming languages.
