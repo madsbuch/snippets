@@ -2,7 +2,8 @@
 implementations of Fibonacci.
 
 ## The list
-
+* C
+    - Iterative
 * Coq
     - Direct recursive
     - Tail recursive
