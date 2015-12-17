@@ -16,13 +16,7 @@
     // Defining fib_acc to be fib_accumulated partially applied
     def fib_acc(n: Int) = fib_accumulated(n, 0, 1)
 
-    // Continuation passing style of the direct implementation
-    def fib_cps(n: Int) : Int -> Int = n match{
-        case 0 => () => 0
-        case 1 => () => 1
-    }
-
     def main(args: Array[String]) : Unit = {
-   	    println(fib_direct(100))
+   	    println(fib_acc(100))
     }
  }
