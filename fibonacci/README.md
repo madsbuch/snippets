@@ -4,18 +4,23 @@ implementations of Fibonacci.
 ## The list
 * C
     - Iterative
+    - Direct recursion
+    - Dynamic programming (Memoization)
 * Coq
     - Direct recursive
-    - Tail recursive
+    - Accumulated recursion
 * Haskell
     - Direct Recursive
-    - Tail Recursive
+    - Accumulated recursion
 * Java
     - Direct recursive
     - Iterative
 * PHP
     - Direct recursive
     - Iterative
+* Scala
+    - Direct Recursive
+    - Accumulated recursion
 
 ## Benchmarking
 One would think that having so many implementations of a function would provide
