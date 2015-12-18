@@ -6,6 +6,8 @@ implementations of Fibonacci.
     - Iterative
     - Direct recursion
     - Dynamic programming (Memoization)
+* C#
+    - Direct Recursion
 * Coq
     - Direct recursive
     - Accumulated recursion
@@ -38,5 +40,6 @@ It is clear that the Fibonacci has been implemented in many various styles:
 
 * Direct Recursion
 * Accumulated Recursion
+* Continuation Passing Style
 * Iterative
 * Dynamic Programming
