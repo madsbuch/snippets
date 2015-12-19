@@ -9,3 +9,23 @@ fib_direct(N, R) :-
 	fib_direct(X2, B),
 	R is A + B.
 
+% Definiition of the Peano numbers
+nat(0).
+nat(s(_)).
+
+% Readable nats
+read_nat(0, 0).
+read_nat(s(N), R) :-
+	read_nat(N, R1),
+	R is R1 + 1.
+
+% Definition of addition ( add(A, B, Result ))
+add(0, B, B).
+add(s(A), B, R) :- add(A, s(B), R).
+	
+fib_peano(0, 0).
+fib_peano(s(0), s(0)).
+fib_peano(s(s(N)), R) :-
+	fib_peano(N, A),
+	fib_peano(s(N), B),
+	add(A, B, R).
