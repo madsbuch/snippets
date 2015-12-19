@@ -21,6 +21,8 @@ implementations of Fibonacci.
 * PHP
     - Direct recursive
     - Iterative
+* Prolog
+    - Direct recursive
 * Scala
     - Direct Recursive
     - Accumulated recursion
