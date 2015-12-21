@@ -15,9 +15,13 @@ implementations of Fibonacci.
     - Direct Recursive
     - Accumulated recursion
     - Continuation Passing Style
+    - Direct recursion using Naturals defined in ADT
 * Java
     - Direct recursive
     - Iterative
+* JavaScript
+    - Direct Recursive
+    - Event Driven
 * PHP
     - Direct recursive
     - Iterative
@@ -27,6 +31,8 @@ implementations of Fibonacci.
     - Direct Recursive
     - Accumulated recursion
     - Continuation Passing Style
+* Spreadsheet
+    - Dynamic Programming (Tabulation)
 
 ## Benchmarking
 One would think that having so many implementations of a function would provide
