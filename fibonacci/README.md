@@ -8,7 +8,7 @@ implementations of Fibonacci.
     - Dynamic programming (Memoization)
 * C#
     - Direct Recursion
-* Coq
+* Coq (with proof of equivalence)
     - Direct recursive
     - Accumulated recursion
 * Haskell
