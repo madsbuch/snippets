@@ -31,8 +31,8 @@ Definition fib_acc (n : nat) := fib_accumulator n 1 0.
 Compute fib_acc 10.
 
 
-(* As Coq is a proof assistant, we try to prove that the two above functions
- are in equivalent *)
+(**** As Coq is a proof assistant, we try to
+  prove that the two above functions are in equivalent ****)
 
 (* We define what fibonacci is *)
 Definition specification_of_fibonacci (f : nat -> nat) :=
@@ -44,7 +44,8 @@ Definition specification_of_fibonacci (f : nat -> nat) :=
     f (S (S n)) = f (S n) + f n.
 
 
-(* We make sure that the definition is unambigious *)
+(* We make sure that the definition is unambigious. This lemma is also necesarry
+ to prove theorems later on *)
 Lemma there_is_only_one_fib :
   forall f1 f2 : nat -> nat,
     specification_of_fibonacci f1 ->
@@ -71,7 +72,6 @@ Proof.
     rewrite bc_f1_1.
     rewrite bc_f2_1.
     reflexivity.
-
 
   split.
     apply IHSm'.
@@ -114,7 +114,7 @@ Proof.
   reflexivity.
 Qed.
 
-Lemma fib_direct_satisfies_spec :
+Lemma fib_direct_satisfies_specification :
   specification_of_fibonacci fib_direct.
 Proof.
   unfold specification_of_fibonacci.
@@ -140,7 +140,7 @@ Proof.
   reflexivity.
 Qed.
 
-Lemma unfold_fib_acc_base_case :
+Lemma unfold_fib_accumulator_bc1 :
   forall a b : nat,
     fib_accumulator 0 a b = b.
 Proof.
@@ -178,7 +178,7 @@ Proof.
   induction k as [ | k' IHk'].
 
   intro i.
-  rewrite -> unfold_fib_acc_base_case.
+  rewrite -> unfold_fib_accumulator_bc1.
   reflexivity.
 
   intro i.
@@ -189,14 +189,14 @@ Proof.
   reflexivity.
 Qed.
 
-Lemma fib_acc_fits_specification :
+Lemma fib_acc_satisfies_specification :
   specification_of_fibonacci fib_acc.
 Proof.
   unfold specification_of_fibonacci.
   split.
 
   unfold fib_acc.
-  rewrite unfold_fib_acc_base_case.
+  rewrite unfold_fib_accumulator_bc1.
   reflexivity.
 
   split.
@@ -210,16 +210,16 @@ Proof.
   unfold fib_acc.  
   rewrite <- unfold_fib_direct_bc1 at 1. 
   rewrite <- unfold_fib_direct_bc0 at 2.
-  rewrite -> (about_fib_acc fib_direct fib_direct_satisfies_spec (S (S n)) 0).
+  rewrite -> (about_fib_acc fib_direct fib_direct_satisfies_specification (S (S n)) 0).
   rewrite -> plus_0_r.
 
   rewrite <- unfold_fib_direct_bc1.
   rewrite <- unfold_fib_direct_bc0 at 2.
-  rewrite -> (about_fib_acc fib_direct fib_direct_satisfies_spec (S n) 0).
+  rewrite -> (about_fib_acc fib_direct fib_direct_satisfies_specification (S n) 0).
   rewrite -> plus_0_r.
  
   rewrite <- unfold_fib_direct_bc0 at 2.
-  rewrite -> (about_fib_acc fib_direct fib_direct_satisfies_spec n 0).  
+  rewrite -> (about_fib_acc fib_direct fib_direct_satisfies_specification n 0).  
   rewrite -> plus_0_r.
 
   apply unfold_fib_direct_ic.
@@ -233,8 +233,8 @@ Proof.
   intros n.
   rewrite (there_is_only_one_fib fib_acc 
                                  fib_direct 
-                                 fib_acc_fits_specification 
-                                 fib_direct_satisfies_spec).
+                                 fib_acc_satisfies_specification
+                                 fib_direct_satisfies_specification).
   reflexivity.
 Qed.
 
