@@ -19,6 +19,11 @@ read_nat(s(N), R) :-
 	read_nat(N, R1),
 	R is R1 + 1.
 
+parse_nat(0, 0).
+parse_nat(X, s(R)) :-
+	X1 is X-1,
+	parse_nat(X1, R).
+
 % Definition of addition ( add(A, B, Result ))
 add(0, B, B).
 add(s(A), B, R) :- add(A, s(B), R).
