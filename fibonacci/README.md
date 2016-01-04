@@ -1,6 +1,9 @@
 # Fibonacci
 implementations of Fibonacci.
 
+Accompanying this project I have a
+[series  of blog posts](http://buchi.dk/blog/100-days-of-fibonacci-overview/) explaining various aspects of programming.
+
 ## The list
 * C
     - Iterative
